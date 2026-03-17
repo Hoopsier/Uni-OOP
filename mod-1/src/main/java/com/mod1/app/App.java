@@ -13,7 +13,39 @@ public class App {
     // four();
     // System.out.println(String.format("%.2f", five(100)));
     // System.out.println(six());
-    System.out.println(seven(30000));
+    // System.out.println(seven(30000));
+    // eight(2, -5, -7);
+    nine();
+  }
+
+  private static void nine() {
+    Scanner scanner = new Scanner(System.in);
+    String bits = scanner.nextLine();
+    String reversed = "";
+    for (int i = bits.length() - 1; i >= 0; i--) {
+      reversed += bits.charAt(i);
+    }
+    for (char bit : bits.toCharArray()) {
+
+    }
+    scanner.close();
+  }
+
+  private static void eight(int a, int b, int c) {
+    final double b2 = (double) Math.pow(b, 2);
+    final double sqrt = Math.sqrt(b2 - 4 * a * c);
+    final double pos = ((-b) + sqrt) / (2 * a);
+    final double neg = ((-b) - sqrt) / (2 * a);
+    if (pos == 0 && neg == 0 || Double.isNaN(neg) || Double.isNaN(pos)) {
+      System.out.println("Does not touch y0");
+      return;
+    }
+    if (pos == 0 || neg == 0) {
+      System.out.println("How???");
+    }
+    String out = String.format("%s %.2f %s %.2f", "positive:", pos, "negative:", neg);
+    System.out.println(out);
+
   }
 
   private static String seven(double grams) {
