@@ -1,6 +1,7 @@
 package com.mod1.app;
 
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Hello world!
@@ -15,19 +16,149 @@ public class App {
     // System.out.println(six());
     // System.out.println(seven(30000));
     // eight(2, -5, -7);
-    nine();
+    // nine();
+    // ten();
+    // eleven();
+    // twelve();
+    // thirteen();
+    fourteen();
+  }
+
+  private static void fourteen() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("How many numbers?");
+    int numCount = Integer.parseInt(scanner.nextLine());
+    Integer[] nums = new Integer[numCount];
+    List<Integer> newNums = new ArrayList<>();
+    boolean isThere;
+    for (Integer i = 0; i < numCount; i++) {
+      System.out.print("Enter integer" + (i + 1) + ": ");
+      nums[i] = Integer.parseInt(scanner.nextLine());
+    }
+    scanner.close();
+    for (Integer i : nums) {
+      if (newNums.size() == 0) {
+        newNums.add(i);
+        continue;
+      }
+      isThere = false;
+      for (Integer j : newNums) {
+        if (i == j) {
+          isThere = true;
+        }
+      }
+      if (!isThere) {
+        newNums.add(i);
+      }
+    }
+    System.out.println(newNums);
+  }
+
+  private static void thirteen() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("How many numbers?");
+    int numCount = Integer.parseInt(scanner.nextLine());
+    int[] nums = new int[numCount];
+    int[] max = { 0, 0 };
+    int[] maxIndex = { 0, 0 };
+    for (int i = 0; i < numCount; i++) {
+      System.out.print("Enter integer" + (i + 1) + ": ");
+      nums[i] = Integer.parseInt(scanner.nextLine());
+    }
+
+    scanner.close();
+    for (int i = 0; i < numCount; i++) {
+      if (nums[i] > max[0]) {
+        max[1] = nums[0];
+        maxIndex[1] = maxIndex[0];
+        max[0] = nums[i];
+        maxIndex[0] = i;
+        continue;
+      }
+      if (nums[i] > max[1]) {
+        max[1] = nums[i];
+        maxIndex[1] = i;
+      }
+    }
+    System.out.println("Biggest sum is " + (max[0] + max[1]));
+    System.out.println("At integers " + (maxIndex[0] + 1) + " and " + (maxIndex[1] + 1));
+  }
+
+  private static void twelve() {
+    String[] firstNames = {
+        "Liam", "Emma", "Noah", "Olivia", "Ava",
+        "Elijah", "Sophia", "Lucas", "Mia", "Amelia"
+    };
+
+    String[] lastNames = {
+        "Smith", "Johnson", "Williams", "Brown", "Jones",
+        "Garcia", "Miller", "Davis", "Rodriguez", "Martinez"
+    };
+    String fullName;
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("How many names would you like?");
+    int names = Integer.parseInt(scanner.nextLine());
+    scanner.close();
+    for (int i = 0; i < names; i++) {
+      fullName = firstNames[ThreadLocalRandom.current().nextInt(0, firstNames.length)] + " "
+          + lastNames[ThreadLocalRandom.current().nextInt(0, lastNames.length)];
+      System.out.println(fullName);
+    }
+  }
+
+  private static void eleven() {
+    int luku = (int) (Math.random() * 10) + 1;
+    List<Integer> items = new ArrayList<>();
+    for (int i = 1; i < 11; i++) {
+      items.add(i * luku);
+    }
+    System.out.println(items);
+  }
+
+  private static void ten() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Starting point please:");
+    int start = Integer.parseInt(scanner.nextLine());
+    System.out.print("Ending point please:");
+    int end = Integer.parseInt(scanner.nextLine());
+    List<Integer> primaries = new ArrayList<>();
+    boolean isPrimary;
+    scanner.close();
+    for (int i = start; i <= end; i++) {
+      isPrimary = tenpointtwo(i);
+      if (isPrimary) {
+        primaries.add(i);
+      }
+    }
+    System.out.println(primaries);
+  }
+
+  private static boolean tenpointtwo(int i) {
+    for (int j = 2; j * j <= i; j++) {
+      if (i % j == 0) {
+        return false;
+      }
+    }
+    return true;
   }
 
   private static void nine() {
     Scanner scanner = new Scanner(System.in);
-    String bits = scanner.nextLine();
-    String reversed = "";
-    for (int i = bits.length() - 1; i >= 0; i--) {
-      reversed += bits.charAt(i);
+    char[] chars = scanner.nextLine().toCharArray();
+    String bit = "";
+    int bitVal = 1;
+    int sum = 0;
+    for (int i = chars.length - 1; i >= 0; i--) {
+      bit = "";
+      bit += chars[i];
+      int val = Integer.parseInt(bit);
+      if (val == 1) {
+        sum += val * bitVal;
+      }
+      bitVal *= 2;
     }
-    for (char bit : bits.toCharArray()) {
-
-    }
+    System.out.println(sum);
     scanner.close();
   }
 
