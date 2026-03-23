@@ -4,6 +4,7 @@ public class Car {
   private double speed;
   private double gasolineLevel;
   private String typeName;
+  private boolean cruiseControl;
 
   public Car(String typeName) {
     speed = 0;
@@ -15,6 +16,32 @@ public class Car {
     this.speed = speed;
     this.gasolineLevel = gasolineLevel;
     this.typeName = typeName;
+  }
+
+  public boolean ccOn(int min, int max) {
+    cruiseControl = true;
+    System.out.println("asd");
+    if (gasolineLevel <= 0) {
+      System.out.println("Out of gas");
+      return false;
+    }
+    while (speed < min) {
+      System.out.println("abd");
+      accelerate();
+    }
+    while (speed > max) {
+      System.out.println("csd");
+      decelerate(10);
+    }
+    return true;
+  }
+
+  public void ccOff() {
+    cruiseControl = false;
+  }
+
+  public boolean getCruiseControl() {
+    return cruiseControl;
   }
 
   public void accelerate() {
