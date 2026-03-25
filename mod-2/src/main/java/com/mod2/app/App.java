@@ -12,7 +12,17 @@ public class App {
     // three();
     // four();
     // fivesixseven();
-    teneleventwelve();
+    // teneleventwelve();
+    fourteen();
+  }
+
+  private static void fourteen() {
+    Car scar = new SportsCar("loser");
+    scar.accelerate();
+    System.out.println(scar.speed);
+    Bus bus = new Bus();
+    bus.passengerEnter(123);
+    System.out.println(bus.getPassengers());
   }
 
   private static void teneleventwelve() {

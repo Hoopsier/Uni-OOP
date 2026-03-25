@@ -1,14 +1,23 @@
 package com.mod2.app;
 
 public class Car {
-  private double speed;
+  public double speed;
   private double gasolineLevel;
   private String typeName;
   private boolean cruiseControl;
+  public float gasLoss;
+
+  public Car() {
+    speed = 0;
+    gasolineLevel = 1;
+    this.gasLoss = 5;
+    this.typeName = "default";
+  }
 
   public Car(String typeName) {
     speed = 0;
-    gasolineLevel = 0;
+    gasolineLevel = 1;
+    this.gasLoss = 5;
     this.typeName = typeName;
   }
 
@@ -16,6 +25,7 @@ public class Car {
     this.speed = speed;
     this.gasolineLevel = gasolineLevel;
     this.typeName = typeName;
+    this.gasLoss = 5;
   }
 
   public boolean ccOn(int min, int max) {
@@ -69,6 +79,10 @@ public class Car {
 
   void fillTank() {
     gasolineLevel = 100;
+  }
+
+  void loseGas() {
+    gasolineLevel -= gasLoss;
   }
 
   double getGasolineLevel() {
