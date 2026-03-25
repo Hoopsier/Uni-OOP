@@ -41,7 +41,7 @@ public class Car {
     }
     while (speed > max) {
       System.out.println("csd");
-      decelerate(10);
+      decelerate();
     }
     return true;
   }
@@ -61,10 +61,10 @@ public class Car {
       speed = 0;
   }
 
-  void decelerate(int amount) {
+  void decelerate() {
     if (gasolineLevel > 0) {
-      if (amount > 0)
-        speed = Math.max(0, speed - amount);
+      if (10 > 0)
+        speed = Math.max(0, speed - 10);
     } else
       speed = 0;
   }

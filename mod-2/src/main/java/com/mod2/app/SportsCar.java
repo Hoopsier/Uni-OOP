@@ -13,4 +13,13 @@ class SportsCar extends Car {
     else
       speed = 0;
   }
+
+  @Override
+  public void decelerate() {
+    if (getGasolineLevel() > 0) {
+      if (20 > 0)
+        speed = Math.max(0, speed - 20);
+    } else
+      speed = 0;
+  }
 }
