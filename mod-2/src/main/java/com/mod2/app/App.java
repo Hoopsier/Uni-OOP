@@ -6,6 +6,7 @@ package com.mod2.app;
 public class App {
   // NOTE: I understand why you would stuff the testing code into the methods, but
   // I don't care, since this is easier.
+  // NOTE: this module also contains the third part, since we reuse classes.
   public static void main(String[] args) {
     // one();
     // two();
@@ -13,10 +14,16 @@ public class App {
     // four();
     // fivesixseven();
     // teneleventwelve();
-    fourteen();
+    // fourteenfifteen();
+    seventeen();
   }
 
-  private static void fourteen() {
+  private static void seventeen() {
+    ShapeCalc calc = new ShapeCalc();
+    calc.printAreas();
+  }
+
+  private static void fourteenfifteen() {
     Car scar = new SportsCar("loser");
     scar.accelerate();
     System.out.println(scar.speed);
