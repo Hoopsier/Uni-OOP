@@ -11,7 +11,31 @@ public class App {
     // two();
     // three();
     // four();
-    fivesixseven();
+    // fivesixseven();
+    teneleventwelve();
+  }
+
+  private static void teneleventwelve() {
+    Book bam = new Book("Zero", "two", 3);
+    Book bam2 = new Book("One", "two", 3);
+    Book bam3 = new Book("Two", "four", 3);
+    Book bam4 = new Book("One", "two", 3);
+    Library lib = new Library();
+    lib.addBook(bam);
+    lib.addBook(bam2);
+    lib.addBook(bam3);
+    lib.addBook(bam4);
+    lib.borrowBook("Zero");
+    System.out.println(lib.isBookAvailable("Zero"));
+    System.out.println(lib.isBookAvailable("Two"));
+    lib.printBooks();
+    System.out.println("=====");
+    lib.returnBook(bam);
+    lib.bba("two");
+    bam2.addReview("Weeweewoowoo");
+    System.out.println("Library average rating is " + lib.getAverageRating());
+    bam.rate(5);
+    System.out.println("Library most reviewed book is " + lib.getMostReviewedBook().title);
   }
 
   private static void fivesixseven() {
