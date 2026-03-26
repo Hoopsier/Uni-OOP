@@ -6,6 +6,10 @@ interface IVehicle {
   void stop();
 
   void getInfo();
+
+  /// This shall be done with 10/speed, because I am not researching two
+  /// unnecessary numbers.
+  void calcEfficiency();
 }
 
 interface IEVehicle extends IVehicle {
@@ -22,6 +26,14 @@ abstract class EVehicle extends Vehicle implements IEVehicle {
 }
 
 class Car extends Vehicle {
+
+  Car() { // NOTE: Not doing a customizable car due to lack of necessity
+    this.speed = 10;
+  }
+
+  public void calcEfficiency() {
+    System.out.println("Efficiency: " + (10 / speed));
+  }
 
   public void charge() {
     System.out.println("This Vehicle cannot charge");
@@ -41,6 +53,15 @@ class Car extends Vehicle {
 }
 
 class Motorcycle extends Vehicle {
+
+  Motorcycle() { // NOTE: Not doing a customizable car due to lack of necessity
+    this.speed = 10;
+  }
+
+  public void calcEfficiency() {
+    System.out.println("Efficiency: " + (10 / speed));
+  }
+
   public void charge() {
     System.out.println("This Vehicle cannot charge");
   }
@@ -59,6 +80,14 @@ class Motorcycle extends Vehicle {
 }
 
 class Bus extends Vehicle {
+  public void calcEfficiency() {
+    System.out.println("Efficiency: " + (10 / speed));
+  }
+
+  Bus() { // NOTE: Not doing a customizable car due to lack of necessity
+    this.speed = 10;
+  }
+
   public void charge() {
     System.out.println("This Vehicle cannot charge");
   }
@@ -77,6 +106,14 @@ class Bus extends Vehicle {
 }
 
 class EMotorcycle extends EVehicle {
+  EMotorcycle() { // NOTE: Not doing a customizable car due to lack of necessity
+    this.speed = 10;
+  }
+
+  public void calcEfficiency() {
+    System.out.println("Efficiency: " + (10 / speed));
+  }
+
   public void charge() {
     System.out.println("EMotorcycle got charged");
   }
@@ -95,6 +132,14 @@ class EMotorcycle extends EVehicle {
 }
 
 class ECar extends EVehicle {
+  ECar() { // NOTE: Not doing a customizable car due to lack of necessity
+    this.speed = 10;
+  }
+
+  public void calcEfficiency() {
+    System.out.println("Efficiency: " + (10 / speed));
+  }
+
   public void charge() {
     System.out.println("ECar got charged");
   }

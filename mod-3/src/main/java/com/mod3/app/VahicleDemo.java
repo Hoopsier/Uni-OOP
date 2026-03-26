@@ -9,10 +9,12 @@ class VehicleDemo {
       vehicle.start();
       vehicle.stop();
       vehicle.getInfo();
+      vehicle.calcEfficiency();
     }
     for (IEVehicle vehicle : eVehicles) { // NOTE: Could not figure out how to do this in one array. Will check with AI
                                           // if it is possible.
       vehicle.charge();
+      vehicle.calcEfficiency();
     }
   }
 }
