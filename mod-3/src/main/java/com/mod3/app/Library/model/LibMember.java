@@ -43,6 +43,14 @@ public class LibMember {
     book.setReserved(false);
   }
 
+  public boolean hasReservedBook(Book book) {
+    return reservedBooks.contains(book);
+  }
+
+  public List<Book> getReservedBooks() {
+    return reservedBooks;
+  }
+
   public void printMyStuff() {
     System.out.println("reserved: " + reservedBooks);
     System.out.println("borrowed: " + borrowedBooks);

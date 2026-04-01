@@ -38,4 +38,12 @@ public class Library {
   public void unReserveBook(Book book, LibMember member) {
     member.unReserveBook(book);
   }
+
+  public void listReservedBooks(LibMember member) {
+    List<Book> list = member.getReservedBooks();
+
+    for (Book book : list) {
+      System.out.println(book.getTitle());
+    }
+  }
 }

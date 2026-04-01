@@ -24,6 +24,7 @@ public class App {
     lib.borrowBook(member, book);
     lib.reserveBook(book2, member);
     member.printMyStuff();
+    lib.listReservedBooks(member);
   }
 
   /// NOTE: This is 3.2 task 1
