@@ -7,6 +7,9 @@ import java.net.*;
 import java.io.*;
 
 import com.mod3.app.Library.system.Library;
+import com.mod3.app.Serial.Course;
+import com.mod3.app.Serial.Enrollment;
+import com.mod3.app.Serial.Student;
 
 public class App {
   public static void main(String[] args) {
@@ -14,7 +17,37 @@ public class App {
     // BankAccount.main(args);
     // library();
     // files();
-    fibonacchi();
+    // fibonacchi();
+    cereal();
+  }
+
+  private static void cereal() {
+    final String FILENAME = "enrollments.ser";
+    Student stud = new Student("wang", 123, 12);
+    Course course = new Course("123", "123", "123");
+    Enrollment er = new Enrollment();
+    File f = new File(FILENAME);
+    if (f.exists() && f.isFile()) {
+      // we have objects state stored to the file, read it
+      try (
+          FileInputStream inputstream = new FileInputStream(FILENAME);
+          ObjectInputStream objects = new ObjectInputStream(inputstream);) {
+        er = (Enrollment) objects.readObject();
+      } catch (Exception e) {
+        System.err.println("Error reading file: " + e);
+      }
+    } else {
+      // there are no stored object state, let's create an object
+      er = new Enrollment(stud, course, "");
+      try (
+          FileOutputStream outputstream = new FileOutputStream(FILENAME);
+          ObjectOutputStream objects = new ObjectOutputStream(outputstream);) {
+        objects.writeObject(er);
+      } catch (Exception e) {
+        System.err.println("Writing person: " + e);
+      }
+    }
+    System.out.println("Enrollment: " + er);
   }
 
   private static void fibonacchi() {
