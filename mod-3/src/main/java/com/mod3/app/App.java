@@ -3,6 +3,8 @@ package com.mod3.app;
 import com.mod3.app.Library.model.Book;
 import com.mod3.app.Library.model.LibMember;
 import java.util.*;
+import java.net.*;
+import java.io.*;
 
 import com.mod3.app.Library.system.Library;
 
@@ -10,7 +12,63 @@ public class App {
   public static void main(String[] args) {
     // one();
     // BankAccount.main(args);
-    library();
+    // library();
+    files();
+  }
+
+  private static void files() {
+    URL myUrl;
+    try {
+      myUrl = new URL("https://users.metropolia.fi/~jarkkov/temploki.csv");
+    } catch (MalformedURLException e) {
+      System.err.println(e);
+      return;
+    }
+
+    try {
+      // open the connection and get the input stream
+      // it will automatically generate HTTP GET-request
+      InputStream istream = myUrl.openStream();
+
+      // jump to character streams
+      InputStreamReader istreamreader = new InputStreamReader(istream);
+
+      // and to buffered reader for efficiency
+      BufferedReader reader = new BufferedReader(istreamreader);
+
+      // we use StringBuilder for efficiency, concatenating ordinary Strings is slow
+      // and
+      // generates unnecessary objects
+      String line;
+      StringBuilder response = new StringBuilder();
+
+      boolean header = true;
+      String[] columnNames = {};
+      // here we read the content of the web page line by line
+      while ((line = reader.readLine()) != null) {
+        if (header) {
+          header = false;
+          columnNames = line.split(";");
+          continue;
+        }
+        String[] columns = line.split(";");
+        String time = columns[0];
+        if (!time.contains("01.01.2023")) {
+          continue;
+        }
+        for (int i = 0; i < columnNames.length; i++) {
+          System.out.print(columnNames[i] + ": " + columns[i] + ", ");
+        }
+        System.out.println();
+        response.append(line);
+      }
+
+      // now it is time to print the result
+      reader.close();
+      // System.out.println(response.toString());
+    } catch (IOException e) {
+      System.err.println(e);
+    }
   }
 
   private static void library() {
