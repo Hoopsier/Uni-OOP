@@ -13,7 +13,27 @@ public class App {
     // one();
     // BankAccount.main(args);
     // library();
-    files();
+    // files();
+    fibonacchi();
+  }
+
+  private static void fibonacchi() {
+    long x = 0;
+    long z = 0;
+    long y = 1;
+    String csv = "";
+    for (int i = 0; i < 60; i++) {
+      z = x + y;
+      csv = csv.concat(x + ",");
+      x = y;
+      y = z;
+    }
+    try (OutputStream outputStream = new FileOutputStream("fib.csv")) {
+      byte[] bytes = csv.getBytes();
+      outputStream.write(bytes);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   private static void files() {
