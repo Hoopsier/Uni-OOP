@@ -8,7 +8,8 @@ import java.util.Random;
  */
 public class App {
   public static void main(String[] args) {
-    two();
+    // two();
+    three();
   }
 
   private static void one() {
@@ -46,5 +47,9 @@ public class App {
       sum += thread.getSum();
     }
     System.out.println(sum);
+  }
+
+  private static void three() {
+
   }
 }
