@@ -6,7 +6,8 @@ This thing should add print reset and print values, and prints an error when add
 
 ## Code
 
-`package app;
+```java
+package app;
 
 /**
 
@@ -51,7 +52,7 @@ public class Calculator {
     public int getValue() {
         return this.currentValue;
     }
-}`
+}```
 
 ## Explanation of the code *By Copilot*
 
