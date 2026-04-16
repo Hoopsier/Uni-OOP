@@ -1,6 +1,8 @@
 package app;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -10,7 +12,26 @@ public class App {
   public static void main(String[] args) {
     // two();
     // three();
-    four();
+    // four();
+    five();
+  }
+
+  // Sync 2
+  private static void five() {
+    SafeArrayList sal = new SafeArrayList();
+    List<Thread> tests = new ArrayList<>();
+    for (int i = 0; i < 25; i++) {
+      SALTest salTest = new SALTest(sal);
+      salTest.start();
+      tests.add(salTest);
+    }
+    for (Thread thread : tests) {
+      try {
+        thread.join();
+      } catch (InterruptedException e) {
+      }
+    }
+    System.out.println(sal.getSize());
   }
 
   // Sync 1
