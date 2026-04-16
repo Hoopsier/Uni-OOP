@@ -9,7 +9,17 @@ import java.util.Random;
 public class App {
   public static void main(String[] args) {
     // two();
-    three();
+    // three();
+    four();
+  }
+
+  // Sync 1
+  private static void four() {
+    Reservee reservee = new Reservee();
+    for (int i = 0; i < 20; i++) {
+      Customer customer = new Customer(reservee, i);
+      customer.start();
+    }
   }
 
   private static void one() {
