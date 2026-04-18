@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * NOTE: I did not name the package view, because effort
  */
 public class App extends Application {
-  private Label result = new Label("0");
+  private static Label result = new Label("");
   private TextField wordField = new TextField();
   private TextField descField = new TextField();
   private TextField queryField = new TextField();
@@ -61,5 +61,9 @@ public class App extends Application {
 
   public static void setResult(String value) {
     result2.setText(value);
+  }
+
+  public static void setHint() {
+    result.setText("Add someting into those back to back text fields.");
   }
 }

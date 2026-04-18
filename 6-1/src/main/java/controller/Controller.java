@@ -8,6 +8,10 @@ public class Controller {
 
   public void addWord(String word, String desc) {
     System.out.println("tried");
+    if (word.isBlank() || desc.isBlank()) {
+      App.setHint();
+      return;
+    }
     dictionary.addWord(word, desc);
   }
 
