@@ -13,6 +13,9 @@ public class Controller {
 
   public void convert(String _value, String currencyIn, String currencyOut) {
     float value;
+    dao.persist(new Currency("eur", 1));
+    dao.persist(new Currency("gbp", 0.8));
+    dao.persist(new Currency("usd", 1.2));
     Currency currIn = dao.find(intHelper(currencyIn));
     Currency currOut = dao.find(intHelper(currencyOut));
 

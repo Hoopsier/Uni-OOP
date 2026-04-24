@@ -12,7 +12,7 @@ public class MariaDbConnection {
 
     if (em == null) {
       if (emf == null) {
-        emf = Persistence.createEntityManagerFactory("CompanyMariaDbUnit");
+        emf = Persistence.createEntityManagerFactory("Converter74MariaDbUnit");
       }
       em = emf.createEntityManager();
     }

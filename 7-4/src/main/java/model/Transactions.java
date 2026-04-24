@@ -3,7 +3,7 @@ package model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "conversion_transactions", schema = "conversion")
+@Table(name = "conversion_transactions")
 public class Transactions {
 
   @Id
