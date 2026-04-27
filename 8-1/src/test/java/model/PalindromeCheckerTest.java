@@ -1,0 +1,19 @@
+package model;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+class PalindromeCheckerTest {
+
+  @Test
+  public void testIsPalindrome() {
+    PalindromeChecker checker = new PalindromeChecker();
+
+    assertTrue(checker.isPalindrome("radar"));
+    assertTrue(checker.isPalindrome("A man, a plan, a canal, Panama"));
+    assertFalse(checker.isPalindrome("Nuke"));
+    assertFalse(checker.isPalindrome("goober"));
+  }
+}
